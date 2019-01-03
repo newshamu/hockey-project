@@ -37,6 +37,7 @@ export default {
     return {
       teams: null,
       activeTeam: null,
+      copyright: null,
     }
   },
   beforeMount: function () {
@@ -48,6 +49,7 @@ export default {
       axios.get('https://statsapi.web.nhl.com/api/v1/teams/')
       .then( function (res) {
         that.teams = res.data.teams
+        that.copyright = res.data.copyright
         that.getRandomTeam()
       })
     },
