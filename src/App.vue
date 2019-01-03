@@ -1,37 +1,63 @@
 <template>
-  <v-app>
-    <v-toolbar app>
+  <v-app app>
+    <v-toolbar>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+        <span>Hockey Thingy</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
     </v-toolbar>
 
     <v-content>
-      <HelloWorld/>
+      <v-layout row>
+        <team-list 
+          :teams="teams"
+          v-on:update-team-view="updateActiveTeam"
+        ></team-list>
+        <team-view
+          :team="activeTeam"
+        ></team-view>
+      </v-layout>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+var axios = require('axios')
+
+import TeamList from './components/TeamList'
+import TeamView from './components/TeamView'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TeamList,
+    TeamView
   },
-  data () {
+  data: function () {
     return {
-      //
+      teams: null,
+      activeTeam: null,
+    }
+  },
+  beforeMount: function () {
+    this.getTeams()
+  },
+  methods: {
+    getTeams: function () {
+      var that = this
+      axios.get('https://statsapi.web.nhl.com/api/v1/teams/')
+      .then( function (res) {
+        that.teams = res.data.teams
+        that.getRandomTeam()
+      })
+    },
+    getRandomTeam: function () {
+      var numTeams = this.teams.length
+      var randNum = Math.floor(Math.random() * numTeams)
+      this.activeTeam = this.teams[randNum]
+    },
+    updateActiveTeam: function (team) {
+      this.activeTeam = team
     }
   }
 }
