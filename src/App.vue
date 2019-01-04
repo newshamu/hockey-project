@@ -1,6 +1,6 @@
 <template>
   <v-app app>
-    <v-toolbar>
+    <v-toolbar color="secondary" dark>
       <v-toolbar-title class="headline text-uppercase">
         <span>Hockey Thingy</span>
       </v-toolbar-title>
@@ -9,7 +9,7 @@
 
     <v-content>
       <v-layout row>
-        <team-list 
+        <team-list
           :teams="teams"
           v-on:update-team-view="updateActiveTeam"
         ></team-list>
@@ -18,6 +18,21 @@
         ></team-view>
       </v-layout>
     </v-content>
+    <v-footer
+      height="auto"
+      dark
+    >
+      <v-card
+        class="flex"
+        flat
+        tile
+        color="secondary"
+      >
+        <v-card-title>
+          <strong class="subheading justify-center">{{ copyright }}</strong>
+        </v-card-title>
+      </v-card>
+    </v-footer>
   </v-app>
 </template>
 
