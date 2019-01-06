@@ -9,12 +9,8 @@
 
     <v-content>
       <v-layout row>
-        <team-list
-          :teams="teams"
-          v-on:update-team-view="updateActiveTeam"
-        ></team-list>
         <team-view
-          :team="activeTeam"
+          :teams="teams"
         ></team-view>
       </v-layout>
     </v-content>
@@ -39,19 +35,16 @@
 <script>
 var axios = require('axios')
 
-import TeamList from './components/TeamList'
 import TeamView from './components/TeamView'
 
 export default {
   name: 'App',
   components: {
-    TeamList,
     TeamView
   },
   data: function () {
     return {
       teams: null,
-      activeTeam: null,
       copyright: null,
     }
   },
@@ -65,16 +58,7 @@ export default {
       .then( function (res) {
         that.teams = res.data.teams
         that.copyright = res.data.copyright
-        that.getRandomTeam()
       })
-    },
-    getRandomTeam: function () {
-      var numTeams = this.teams.length
-      var randNum = Math.floor(Math.random() * numTeams)
-      this.activeTeam = this.teams[randNum]
-    },
-    updateActiveTeam: function (team) {
-      this.activeTeam = team
     }
   }
 }
