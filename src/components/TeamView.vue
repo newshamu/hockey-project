@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs8 sm8 offset-xs2>
+  <v-flex>
     <v-card>
       <v-card-title class="justify-center">Select a team</v-card-title>
       <v-flex xs8 sm8 offset-xs2>

@@ -9,6 +9,11 @@
 
     <v-content>
       <v-layout row>
+        <v-flex xs3 sm3>
+          <stat-nav
+            :teams="teams"
+          ></stat-nav>
+        </v-flex>
         <team-view
           :teams="teams"
         ></team-view>
@@ -35,11 +40,13 @@
 <script>
 var axios = require('axios')
 
+import StatNav from './components/StatNav'
 import TeamView from './components/TeamView'
 
 export default {
   name: 'App',
   components: {
+    StatNav,
     TeamView
   },
   data: function () {
