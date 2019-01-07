@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer permanent>
-    <v-toolbar flat>
+    <v-toolbar flat dark color="secondary">
       <h3>Stat Nav</h3>
     </v-toolbar>
     <v-divider></v-divider>

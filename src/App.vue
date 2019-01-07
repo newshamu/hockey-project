@@ -1,6 +1,6 @@
 <template>
   <v-app app>
-    <v-toolbar color="secondary" dark>
+    <v-toolbar color="primary" dark>
       <v-toolbar-title class="headline text-uppercase">
         <span>Hockey Thingy</span>
       </v-toolbar-title>

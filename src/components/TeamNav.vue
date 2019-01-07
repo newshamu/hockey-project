@@ -21,7 +21,7 @@ export default {
   props: ['teams'],
   methods: {
     addToTeamView: function (team) {
-      
+      team = 2
     }
   }
 }
