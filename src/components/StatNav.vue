@@ -43,8 +43,10 @@ export default {
     }
   },
   methods: {
-    addToStatView: function (team) {
-      
+    addToStatView: function (item) {
+      if (item === 'Teams') {
+        null
+      }
     }
   }
 }

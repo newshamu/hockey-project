@@ -14,9 +14,9 @@
             :teams="teams"
           ></stat-nav>
         </v-flex>
-        <team-view
-          :teams="teams"
-        ></team-view>
+        <team-stat-panel
+            :teams="teams"
+          ></team-stat-panel>
       </v-layout>
     </v-content>
     <v-footer
@@ -41,13 +41,13 @@
 var axios = require('axios')
 
 import StatNav from './components/StatNav'
-import TeamView from './components/TeamView'
+import TeamStatPanel from './components/TeamStatPanel'
 
 export default {
   name: 'App',
   components: {
     StatNav,
-    TeamView
+    TeamStatPanel
   },
   data: function () {
     return {
