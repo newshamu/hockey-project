@@ -13,7 +13,7 @@
         ></v-select>
       </v-flex>
       <div v-if="team !== null">
-        <v-flex xs6 sm6 class="pa-1">
+        <v-flex xs5 sm5 class="pa-1">
           <v-select
             :items="statDict"
             v-model="stat"
@@ -22,7 +22,7 @@
             return-object
           ></v-select>
         </v-flex>
-        <v-flex xs6 sm6 class="pa-1" v-if="stat !== null">
+        <v-flex xs5 sm5 class="pa-1" v-if="stat !== null">
           <p>{{ teamStats[stat.apiName] }}</p>
         </v-flex>
       </div>
@@ -32,6 +32,7 @@
 
 <script>
 var axios = require('axios')
+var statDict = require('../static/TeamStatDict.js')
 
 export default {
   props: ['teams'],
@@ -40,28 +41,7 @@ export default {
       team: null,
       stat: null,
       teamStats: null,
-      statDict: [
-        {
-          apiName: 'gamesPlayed',
-          displayName: 'Games Played'
-        },
-        {
-          apiName: 'wins',
-          displayName: 'Wins',
-        },
-        {
-          apiName: 'losses',
-          displayName: 'Losses',
-        },
-        {
-          apiName: 'ot',
-          displayName: 'Overtime Wins'
-        },
-        {
-          apiName: 'pts',
-          displayName: 'Points'
-        }
-      ]
+      statDict: statDict
     }
   },
   methods: {
