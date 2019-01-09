@@ -1,7 +1,7 @@
 <template>
   <v-flex xs4 sm4 class="ma-3">
     <v-card>
-      <v-flex xs8 sm8 offset-sm2 class="pa-1">
+      <v-flex xs8 sm8 offset-sm2 class="pt-1">
         <v-select
           :items="teams"
           v-model="team"
@@ -13,7 +13,7 @@
         ></v-select>
       </v-flex>
       <v-layout row v-if="team !== null">
-        <v-flex xs6 sm6 class="pa-1">
+        <v-flex xs6 sm6 class="pl-3">
           <v-select
             :items="statDict"
             v-model="stat"
@@ -23,8 +23,10 @@
             return-object
           ></v-select>
         </v-flex>
-        <v-flex xs6 sm6 class="pa-1 text-xs-center" v-if="stat !== null">
-          <v-card-text class="headline">{{ teamStats[stat.apiName] }}</v-card-text>
+        <v-flex xs6 sm6 class="pr-3 text-xs-center" v-if="stat !== null">
+          <v-card flat>
+            <v-card-text class="headline font-weight-light"><u>{{ teamStats[stat.apiName] }}</u></v-card-text>
+          </v-card>
         </v-flex>
       </v-layout>
     </v-card>

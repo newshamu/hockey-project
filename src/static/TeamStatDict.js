@@ -20,7 +20,7 @@ module.exports = [
     displayName: 'Points'
   },
   {
-    apiName: 'ptpctg',
+    apiName: 'ptPctg',
     displayName: 'Point %'
   },
   {
