@@ -12,20 +12,21 @@
           @change="getTeamStats"
         ></v-select>
       </v-flex>
-      <div v-if="team !== null">
-        <v-flex xs5 sm5 class="pa-1">
+      <v-layout row v-if="team !== null">
+        <v-flex xs6 sm6 class="pa-1">
           <v-select
             :items="statDict"
             v-model="stat"
             autofocus
             item-text="displayName"
+            label="Stat"
             return-object
           ></v-select>
         </v-flex>
-        <v-flex xs5 sm5 class="pa-1" v-if="stat !== null">
-          <p>{{ teamStats[stat.apiName] }}</p>
+        <v-flex xs6 sm6 class="pa-1 text-xs-center" v-if="stat !== null">
+          <v-card-text class="headline">{{ teamStats[stat.apiName] }}</v-card-text>
         </v-flex>
-      </div>
+      </v-layout>
     </v-card>
   </v-flex>
 </template>
