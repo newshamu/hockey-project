@@ -19,11 +19,11 @@
             v-for="stat in headers"
             :key="stat.apiName"
           >
-            <span v-if="stat.value === 'Team Name'">
+            <span v-if="stat.value === 'name'">
               {{ props.item.name }}
             </span>
             <span v-else>
-              {{ props.item.teamStats[0].splits[0].stat[stat.value] }}
+              {{ props.item[stat.value] }}
             </span>
           </td>
         </template>
@@ -58,19 +58,26 @@ export default {
     setUpTable: function () {
       this.headers.push({
         text: 'Team Name',
-        value: 'Team Name'
+        value: 'name'
       })
       for (var i = 0; i < statDict.length; i++) {
         this.headers.push({
-          text: statDict[i].apiName,
+          text: statDict[i].displayName,
           value: statDict[i].apiName
         })
       }
-      //this.headers = statDict
-      // for (var i = 0; i < Object.keys(this.teams).length; i++) {
-      //   this.data.append()
-      // }
-      this.data = this.teams
+
+      // Populate data array with team data objects
+      for (i = 0; i < Object.keys(this.teams).length; i++) {
+        this.data[i] = this.teams[i]
+
+        // Makes actual stats more accessible -- data isn't buried
+        // under unnecessary nested properties
+        for (var stat in this.teams[i].teamStats[0].splits[0].stat) {
+          this.data[i][stat] = this.teams[i].teamStats[0].splits[0].stat[stat]
+        }
+        delete this.data[i].teamStats  // Cleans up object to remain lightweight
+      }
     },
     statChange: function (stat) {
       this.stat = stat
