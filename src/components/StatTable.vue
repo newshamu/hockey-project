@@ -1,24 +1,37 @@
 <template>
-  <v-flex xs-8 sm-8>
-    <v-data-table
-      :headers="headers"
-      :items="data"
-      class="elevation-5 ma-3"
-    >
-      <template slot="items" slot-scope="props">
-        <td
-          v-for="stat in headers"
-          :key="stat.displayName"
-        >
-          <span v-if="stat.value === 'Team Name'">
-            {{ props.item.abbreviation }}
-          </span>
-          <span v-else>
-            {{ props.item.teamStats[0].splits[0].stat[stat.value] }}
-          </span>
-        </td>
-      </template>
-    </v-data-table>
+  <v-flex>
+    <v-card flat class="ma-3">
+      <v-text-field
+        class="pl-1 pr-1"
+        v-model="search"
+        append-icon="search"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+      <v-data-table
+        :headers="headers"
+        :items="data"
+        :search="search"
+      >
+        <template slot="items" slot-scope="props">
+          <td
+            v-for="stat in headers"
+            :key="stat.apiName"
+          >
+            <span v-if="stat.value === 'Team Name'">
+              {{ props.item.name }}
+            </span>
+            <span v-else>
+              {{ props.item.teamStats[0].splits[0].stat[stat.value] }}
+            </span>
+          </td>
+        </template>
+        <v-alert slot="no-results" :value="true" color="error" icon="warning">
+          Your search for "{{ search }}" found no results.
+        </v-alert>
+      </v-data-table>
+    </v-card>
   </v-flex>
 </template>
 
@@ -32,6 +45,7 @@ export default {
   props: ['teams'],
   data: function () {
     return {
+      search: '',
       headers: [],
       data: [],
       stat: null,
