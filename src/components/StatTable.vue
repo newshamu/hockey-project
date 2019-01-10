@@ -1,33 +1,33 @@
 <template>
-  <v-card>
-    <v-card>
-      <stat-selector />
-    </v-card>
+  <v-flex xs-8 sm-8>
     <v-data-table
       :headers="headers"
       :items="data"
+      class="elevation-5 ma-3"
     >
       <template slot="items" slot-scope="props">
-        <!-- <td>{{ props.item.abbreviation }}</td> -->
         <td
           v-for="stat in headers"
           :key="stat.displayName"
         >
-          {{ props.item.teamStats[0].splits[0].stat[stat.value] }}
+          <span v-if="stat.value === 'Team Name'">
+            {{ props.item.abbreviation }}
+          </span>
+          <span v-else>
+            {{ props.item.teamStats[0].splits[0].stat[stat.value] }}
+          </span>
         </td>
       </template>
-
     </v-data-table>
-  </v-card>
+  </v-flex>
 </template>
 
 <script>
 var statDict = require('../static/TeamStatDict.js')
-var StatSelector = require('./StatSelector')
 
 export default {
   components: {
-    StatSelector
+
   },
   props: ['teams'],
   data: function () {

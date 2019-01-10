@@ -4,19 +4,10 @@
       <v-toolbar-title class="headline text-uppercase">
         <span>Hockey Thingy</span>
       </v-toolbar-title>
-      <v-spacer></v-spacer>
     </v-toolbar>
 
     <v-content>
       <v-layout row>
-        <v-flex xs3 sm3>
-          <stat-nav
-            :teams="teams"
-          ></stat-nav>
-        </v-flex>
-        <!-- <team-stat-panel
-            :teams="teams"
-          ></team-stat-panel> -->
         <stat-table 
           :teams="teams"
           v-if="teams !== null"
@@ -44,13 +35,11 @@
 <script>
 var axios = require('axios')
 
-import StatNav from './components/StatNav'
 import StatTable from './components/StatTable'
 
 export default {
   name: 'App',
   components: {
-    StatNav,
     StatTable
   },
   data: function () {
