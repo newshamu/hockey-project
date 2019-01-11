@@ -19,10 +19,7 @@
             v-for="stat in headers"
             :key="stat.apiName"
           >
-            <span v-if="stat.value === 'name'">
-              {{ props.item.name }}
-            </span>
-            <span v-else>
+            <span>
               {{ props.item[stat.value] }}
             </span>
           </td>
