@@ -1,27 +1,33 @@
 <template>
-  <v-card>
+  <v-card flat>
     <v-select
-      :items="statDict"
-      v-model="stat"
-      item-text="displayName"
-      label="Stat"
+      class="pl-1 pr-1"
+      :items="stats"
+      v-model="selectedStats"
+      item-text="text"
+      label="Stats"
+      hint="Select the stats you wish to compare"
+      chips
+      multiple
+      persistent-hint
       return-object
-      @change="emitStat"
+      @input="emitStats"
     ></v-select>
   </v-card>
 </template>
 
 <script>
 export default {
+  props: ['stats'],
   data: function () {
     return {
-      stat: null
+      selectedStats: null
     }
   },
   methods: {
-    emitStat: function () {
-      this.$emit('stat-change', this.stat)
-    }
+    emitStats: function () {
+      this.$emit('stats-change', this.selectedStats)
+    },
   }
 }
 </script>

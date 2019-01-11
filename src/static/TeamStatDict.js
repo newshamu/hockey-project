@@ -1,113 +1,113 @@
 module.exports = [
   {
-    apiName: 'gamesPlayed',
-    displayName: 'Games Played'
+    value: 'gamesPlayed',
+    text: 'Games Played'
   },
   {
-    apiName: 'wins',
-    displayName: 'Wins',
+    value: 'wins',
+    text: 'Wins',
   },
   {
-    apiName: 'losses',
-    displayName: 'Losses',
+    value: 'losses',
+    text: 'Losses',
   },
   {
-    apiName: 'ot',
-    displayName: 'Overtime Wins'
+    value: 'ot',
+    text: 'Overtime Wins'
   },
   {
-    apiName: 'pts',
-    displayName: 'Points'
+    value: 'pts',
+    text: 'Points'
   },
   {
-    apiName: 'ptPctg',
-    displayName: 'Point %'
+    value: 'ptPctg',
+    text: 'Point %'
   },
   {
-    apiName: 'goalsPerGame',
-    displayName: 'Goals per Game'
+    value: 'goalsPerGame',
+    text: 'Goals per Game'
   },
   {
-    apiName: 'goalsAgainstPerGame',
-    displayName: 'Goals Against per Game'
+    value: 'goalsAgainstPerGame',
+    text: 'Goals Against per Game'
   },
   {
-    apiName:  'evGGARatio',
-    displayName:  'evGGARatio'
+    value:  'evGGARatio',
+    text:  'evGGARatio'
   },
   {
-    apiName:  'powerPlayPercentage',
-    displayName:  'Power Play %'
+    value:  'powerPlayPercentage',
+    text:  'Power Play %'
   },
   {
-    apiName:  'powerPlayGoals',
-    displayName:  'Power Play Goals'
+    value:  'powerPlayGoals',
+    text:  'Power Play Goals'
   },
   {
-    apiName:  'powerPlayGoalsAgainst',
-    displayName:  'Power Play Goals Against'
+    value:  'powerPlayGoalsAgainst',
+    text:  'Power Play Goals Against'
   },
   {
-    apiName:  'powerPlayOpportunities',
-    displayName:  'Power Play Opportunities'
+    value:  'powerPlayOpportunities',
+    text:  'Power Play Opportunities'
   },
   {
-    apiName:  'penaltyKillPercentage',
-    displayName:  'Penalty Kill %'
+    value:  'penaltyKillPercentage',
+    text:  'Penalty Kill %'
   },
   {
-    apiName:  'shotsPerGame',
-    displayName:  'Shots per Game'
+    value:  'shotsPerGame',
+    text:  'Shots per Game'
   },{
-    apiName:  'shotsAllowed',
-    displayName:  'Shots Allowed'
+    value:  'shotsAllowed',
+    text:  'Shots Allowed'
   },
   {
-    apiName:  'winScoreFirst',
-    displayName:  '% Games Won when Team Scored First'
+    value:  'winScoreFirst',
+    text:  '% Games Won when Team Scored First'
   },
   {
-    apiName:  'winOppScoreFirst',
-    displayName:  '% Games Won when Opponent Scored First'
+    value:  'winOppScoreFirst',
+    text:  '% Games Won when Opponent Scored First'
   },
   {
-    apiName:  'winLeadFirstPer',
-    displayName:  '% Games Won when Leading First Period Ends'
+    value:  'winLeadFirstPer',
+    text:  '% Games Won when Leading First Period Ends'
   },
   {
-    apiName:  'winLeadSecondPer',
-    displayName:  '% Games Won when Leading Second Period Ends'
+    value:  'winLeadSecondPer',
+    text:  '% Games Won when Leading Second Period Ends'
   },
   {
-    apiName:  'winOutshootOpp',
-    displayName:  '% Games Won when team shot more than Opponent'
+    value:  'winOutshootOpp',
+    text:  '% Games Won when team shot more than Opponent'
   },
   {
-    apiName:  'winOutshotByOpp',
-    displayName:  '% Games Won when opponent shot more than team'
+    value:  'winOutshotByOpp',
+    text:  '% Games Won when opponent shot more than team'
   },
   {
-    apiName:  'faceOffsTaken',
-    displayName:  'Face Offs Taken'
+    value:  'faceOffsTaken',
+    text:  'Face Offs Taken'
   },
   {
-    apiName:  'faceOffsWon',
-    displayName:  'Face Offs Won'
+    value:  'faceOffsWon',
+    text:  'Face Offs Won'
   },
   {
-    apiName:  'faceOffsLost',
-    displayName:  'Face Offs Lost'
+    value:  'faceOffsLost',
+    text:  'Face Offs Lost'
   },
   {
-    apiName:  'faceOffWinPercentage',
-    displayName:  'Face Off Win %'
+    value:  'faceOffWinPercentage',
+    text:  'Face Off Win %'
   },
   {
-    apiName:  'shootingPctg',
-    displayName:  'Shooting Percentage'
+    value:  'shootingPctg',
+    text:  'Shooting Percentage'
   },
   {
-    apiName:  'savePctg',
-    displayName:  'Save Percentage'
+    value:  'savePctg',
+    text:  'Save Percentage'
   }
 ]

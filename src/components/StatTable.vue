@@ -1,8 +1,12 @@
 <template>
-  <v-flex>
-    <v-card flat class="ma-3">
+  <v-flex class="pl-1 pr-1 ma-3">
+    <stat-selector
+      :stats="statDict"
+      @stats-change="statsChange"
+    ></stat-selector>
+    <v-card flat>
       <v-text-field
-        class="pl-1 pr-1"
+        v-if="searchActivated"
         v-model="search"
         append-icon="search"
         label="Search"
@@ -10,14 +14,14 @@
         hide-details
       ></v-text-field>
       <v-data-table
-        :headers="headers"
+        :headers="selectedStats"
         :items="data"
         :search="search"
       >
         <template slot="items" slot-scope="props">
           <td
-            v-for="stat in headers"
-            :key="stat.apiName"
+            v-for="stat in selectedStats"
+            :key="stat.value"
           >
             <span>
               {{ props.item[stat.value] }}
@@ -28,24 +32,33 @@
           Your search for "{{ search }}" found no results.
         </v-alert>
       </v-data-table>
+      <v-btn @click="searchActivated = !searchActivated">Toggle Search</v-btn>
     </v-card>
   </v-flex>
 </template>
 
 <script>
-var statDict = require('../static/TeamStatDict.js')
+import statDict from '../static/TeamStatDict.js'
+import StatSelector from './StatSelector'
 
 export default {
   components: {
-
+    StatSelector
   },
   props: ['teams'],
   data: function () {
     return {
       search: '',
-      headers: [],
       data: [],
       stat: null,
+      selectedStats: [],
+      searchActivated: false,
+      statDict: statDict,
+      teamNameHeader: {
+        text: 'Team Name',
+        value: 'name'
+      },
+      teamNameAdded: false
     }
   },
   mounted: function () {
@@ -53,19 +66,10 @@ export default {
   },
   methods: {
     setUpTable: function () {
-      this.headers.push({
-        text: 'Team Name',
-        value: 'name'
-      })
-      for (var i = 0; i < statDict.length; i++) {
-        this.headers.push({
-          text: statDict[i].displayName,
-          value: statDict[i].apiName
-        })
-      }
+      this.selectedStats.push(this.teamNameHeader)
 
       // Populate data array with team data objects
-      for (i = 0; i < Object.keys(this.teams).length; i++) {
+      for (var i = 0; i < Object.keys(this.teams).length; i++) {
         this.data[i] = this.teams[i]
 
         // Makes actual stats more accessible -- data isn't buried
@@ -76,8 +80,12 @@ export default {
         delete this.data[i].teamStats  // Cleans up object to remain lightweight
       }
     },
-    statChange: function (stat) {
-      this.stat = stat
+    statsChange: function (selectedStats) {
+      this.selectedStats = selectedStats
+      if (!this.teamNameAdded) {
+        this.selectedStats.unshift(this.teamNameHeader)
+        this.teamNameAdded = true
+      }
     }
   }
 }
