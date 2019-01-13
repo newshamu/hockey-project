@@ -32,7 +32,10 @@
           Your search for "{{ search }}" found no results.
         </v-alert>
       </v-data-table>
-      <v-switch @click="searchActivated = !searchActivated">Toggle Search</v-switch>
+      <v-switch
+        v-model="searchActivated"
+        label="Activate Search"
+      ></v-switch>
     </v-card>
   </v-flex>
 </template>
