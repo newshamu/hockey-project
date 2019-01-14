@@ -1,9 +1,19 @@
 <template>
   <v-flex class="pl-1 pr-1 ma-3">
-    <stat-selector
-      :stats="statDict"
-      @stats-change="statsChange"
-    ></stat-selector>
+    <v-layout row>
+      <v-flex xs-12 sm-6>
+        <team-selector
+          :teams="teams"
+          @teams-change="teamsChange"
+        ></team-selector>
+      </v-flex>
+      <v-flex xs-12 sm-6>
+        <stat-selector
+          :stats="statDict"
+          @stats-change="statsChange"
+        ></stat-selector>
+      </v-flex>
+    </v-layout>
     <v-card flat>
       <v-text-field
         v-if="searchActivated"
@@ -15,7 +25,7 @@
       ></v-text-field>
       <v-data-table
         :headers="selectedStats"
-        :items="data"
+        :items="selectedTeams"
         :search="search"
       >
         <template slot="items" slot-scope="props">
@@ -43,18 +53,21 @@
 <script>
 import statDict from '../static/TeamStatDict.js'
 import StatSelector from './StatSelector'
+import TeamSelector from './TeamSelector'
 
 export default {
   components: {
-    StatSelector
+    StatSelector,
+    TeamSelector
   },
   props: ['teams'],
   data: function () {
     return {
       search: '',
-      data: [],
       stat: null,
+      data: [],
       selectedStats: [],
+      selectedTeams: [],
       searchActivated: false,
       statDict: statDict,
       teamNameHeader: {
@@ -89,6 +102,9 @@ export default {
         this.selectedStats.unshift(this.teamNameHeader)
         this.teamNameAdded = true
       }
+    },
+    teamsChange: function (selectedTeams) {
+      this.selectedTeams = selectedTeams
     }
   }
 }
