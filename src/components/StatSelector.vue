@@ -12,7 +12,20 @@
       persistent-hint
       return-object
       @input="emitStats"
-    ></v-select>
+    >
+      <template
+        slot="selection"
+        slot-scope="{ item, index }"
+      >
+        <v-chip v-if="index === 0">
+          <span>{{ item.text }}</span>
+        </v-chip>
+        <span
+          v-if="index === 1"
+          class="grey--text caption"
+        >(+{{ selectedStats.length - 1 }} others)</span>
+      </template>
+    </v-select>
   </v-card>
 </template>
 
