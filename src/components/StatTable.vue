@@ -15,8 +15,14 @@
       </v-flex>
     </v-layout>
     <v-card flat>
+      <v-card-actions>
+        <v-switch
+          v-model="searchEnabled"
+          label="Enable Search"
+        ></v-switch>
+      </v-card-actions>
       <v-text-field
-        v-if="searchActivated"
+        v-if="searchEnabled"
         v-model="search"
         append-icon="search"
         label="Search"
@@ -42,10 +48,6 @@
           Your search for "{{ search }}" found no results.
         </v-alert>
       </v-data-table>
-      <v-switch
-        v-model="searchActivated"
-        label="Activate Search"
-      ></v-switch>
     </v-card>
   </v-flex>
 </template>
@@ -68,7 +70,7 @@ export default {
       data: [],
       selectedStats: [],
       selectedTeams: [],
-      searchActivated: false,
+      searchEnabled: false,
       statDict: statDict,
       teamNameHeader: {
         text: 'Team Name',
