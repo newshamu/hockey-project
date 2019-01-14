@@ -15,17 +15,10 @@
       </v-flex>
     </v-layout>
     <v-card flat>
-      <v-card-actions>
-        <v-switch
-          v-model="searchEnabled"
-          label="Enable Search"
-        ></v-switch>
-      </v-card-actions>
       <v-text-field
-        v-if="searchEnabled"
         v-model="search"
         append-icon="search"
-        label="Search"
+        label="Search Table"
         single-line
         hide-details
       ></v-text-field>
@@ -70,7 +63,6 @@ export default {
       data: [],
       selectedStats: [],
       selectedTeams: [],
-      searchEnabled: false,
       statDict: statDict,
       teamNameHeader: {
         text: 'Team Name',
