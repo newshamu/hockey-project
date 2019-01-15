@@ -7,9 +7,9 @@ import colors from 'vuetify/es5/util/colors'
 Vue.config.productionTip = false
 Vue.use(Vuetify, {
   theme: {
-    primary: colors.blueGrey,
-    secondary: colors.blueGrey.darken2,
-    accent: colors.deepPurple,
+    primary: colors.teal,
+    secondary: colors.teal.lighten4,
+    accent: colors.orange.accent4,
     error: colors.red.accent3
   }
 })

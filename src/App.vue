@@ -22,7 +22,7 @@
         class="flex"
         flat
         tile
-        color="secondary"
+        color="primary"
       >
         <v-card-title>
           <strong class="subheading justify-center">{{ copyright }}</strong>

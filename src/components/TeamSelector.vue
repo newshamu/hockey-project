@@ -9,9 +9,14 @@
       hint="Select the teams you wish to compare"
       chips
       multiple
+      solo flat
       persistent-hint
       return-object
       @input="emitTeams"
+      dense
+      color="accent"
+      clearable
+      background-color="secondary"
     >
       <template
         slot="selection"

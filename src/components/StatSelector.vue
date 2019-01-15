@@ -9,9 +9,14 @@
       hint="Select the stats you wish to compare"
       chips
       multiple
+      solo flat
       persistent-hint
       return-object
       @input="emitStats"
+      dense
+      color="accent"
+      clearable
+      background-color="secondary"
     >
       <template
         slot="selection"
