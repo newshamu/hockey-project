@@ -21,6 +21,8 @@
         label="Search Table"
         single-line
         hide-details
+        backgroundColor="secondary"
+        solo flat
       ></v-text-field>
       <v-data-table
         :headers="selectedStats"
