@@ -7,19 +7,3 @@ This website utilizes the official API of the NHL, which is documented [here](ht
 
 ## Site Location
 This site is currently hosted at https://headtoheadhockey.netlify.com/.
-
-## Installation
-After cloning, there are a couple steps to get it up and running.
-
-### Install vue-cli
-    npm install -g @vue/cli
-
-### Install packages
-Go into project directory and run:
-    npm install
-
-### Run website
-    npm run serve
-
-### Build production website
-    npm run build
