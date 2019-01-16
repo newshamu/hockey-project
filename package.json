@@ -1,11 +1,12 @@
 {
-  "name": "nhl-site",
+  "name": "hockey-project",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "node ./src/index.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -48,5 +49,17 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "description": "## Project vision This site will allow users to dynamically compare the stats of NHL teams, players, etc against each other, or against their own records. Users will be able to drag and drop different stats from numerous categories into the main panel(s) which will allow them to view them and compare them against other stats of their choosing.",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newshamu/hockey-project.git"
+  },
+  "author": "Chris Johnson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newshamu/hockey-project/issues"
+  },
+  "homepage": "https://github.com/newshamu/hockey-project#readme"
 }
