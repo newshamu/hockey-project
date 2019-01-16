@@ -6,7 +6,7 @@ This site will allow users to dynamically compare the stats of NHL teams, player
 This website utilizes the official API of the NHL, which is documented [here](https://gitlab.com/dword4/nhlapi/tree/master).
 
 ## Site Location
-This site is currently hosted at [https://headtoheadhockey.netlify.com/].
+This site is currently hosted at https://headtoheadhockey.netlify.com/.
 
 ## Installation
 After cloning, there are a couple steps to get it up and running.
