@@ -2,7 +2,7 @@
   <v-app app>
     <v-toolbar color="primary" dark>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Hockey Thingy</span>
+        <span>Head to Head Hockey</span>
       </v-toolbar-title>
     </v-toolbar>
 
