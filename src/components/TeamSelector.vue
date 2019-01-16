@@ -6,7 +6,7 @@
       v-model="selectedTeams"
       item-text="name"
       label="Teams"
-      hint="Select the teams you wish to compare"
+      hint="Select teams to compare"
       chips
       multiple
       solo flat

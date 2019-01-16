@@ -23,6 +23,8 @@
         hide-details
         backgroundColor="secondary"
         solo flat
+        hint="Search through table"
+        persistent-hint
       ></v-text-field>
       <v-data-table
         :headers="selectedStats"

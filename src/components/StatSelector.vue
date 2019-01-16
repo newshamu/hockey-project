@@ -6,7 +6,7 @@
       v-model="selectedStats"
       item-text="text"
       label="Stats"
-      hint="Select the stats you wish to compare"
+      hint="Select stats to compare"
       chips
       multiple
       solo flat
