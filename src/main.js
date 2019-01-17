@@ -14,6 +14,10 @@ Vue.use(Vuetify, {
   }
 })
 
+Vue.use(Vuetify, {
+  iconfont: 'fa4' || 'mdi'
+ })
+
 new Vue({
   render: h => h(App),
 }).$mount('#app')

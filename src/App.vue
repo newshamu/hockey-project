@@ -16,18 +16,28 @@
     </v-content>
     <v-footer
       height="auto"
-      dark
+      color="primary"
     >
       <v-card
         class="flex"
-        flat
-        tile
         color="primary"
+        flat
+        dark
+        tile
+        grow
       >
         <v-card-title>
-          <strong class="subheading justify-center">{{ copyright }}</strong>
+          <strong class="caption justify-center">{{ copyright }}</strong>
         </v-card-title>
       </v-card>
+      <v-flex shrink>
+        <v-tooltip top>
+          <v-btn flat icon dark slot="activator" @click="goToGithub">
+            <v-icon>code</v-icon>
+          </v-btn>
+          <span>Check out my Github!</span>
+        </v-tooltip>
+      </v-flex>
     </v-footer>
   </v-app>
 </template>
@@ -59,6 +69,9 @@ export default {
         that.teams = res.data.teams
         that.copyright = res.data.copyright
       })
+    },
+    goToGithub: function () {
+      window.open('https://github.com/newshamu/hockey-project', '_blank')
     }
   }
 }
