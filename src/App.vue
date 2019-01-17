@@ -66,9 +66,18 @@ export default {
       var that = this
       axios.get('https://statsapi.web.nhl.com/api/v1/teams?expand=team.stats')
       .then( function (res) {
-        that.teams = res.data.teams
+        that.teams = res.data.teams.sort(that.compareTeamNames)
+
         that.copyright = res.data.copyright
       })
+    },
+    compareTeamNames: function (a, b) {
+      if (a.name <  b.name) {
+        return -1
+      } else if (a.name > b.name) {
+        return 1
+      }
+      return 0
     },
     goToGithub: function () {
       window.open('https://github.com/newshamu/hockey-project', '_blank')
