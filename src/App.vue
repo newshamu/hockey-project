@@ -7,11 +7,21 @@
     </v-toolbar>
 
     <v-content>
-      <v-layout row>
-        <stat-table 
-          :teams="teams"
-          v-if="teams !== null"
-        ></stat-table>
+      <v-layout row wrap>
+        <v-flex xs-12 sm-8>
+          <stat-table 
+            :teams="teams"
+            v-if="teams !== null"
+            @teams-change="updateTeams"
+            @stats-change="updateStats"
+          ></stat-table>
+        </v-flex>
+        <v-flex xs-12 sm-4>
+          <stat-chart
+            :selected-teams="selectedTeams"
+            :selected-stats="selectedStats"
+          ></stat-chart>
+        </v-flex>
       </v-layout>
     </v-content>
     <v-footer
@@ -46,16 +56,20 @@
 var axios = require('axios')
 
 import StatTable from './components/StatTable'
+import StatChart from './components/StatChart'
 
 export default {
   name: 'App',
   components: {
-    StatTable
+    StatTable,
+    StatChart
   },
   data: function () {
     return {
       teams: null,
       copyright: null,
+      selectedTeams: null,
+      selectedStats: null
     }
   },
   beforeMount: function () {
@@ -78,6 +92,12 @@ export default {
         return 1
       }
       return 0
+    },
+    updateTeams: function (selectedTeams) {
+      this.selectedTeams = selectedTeams
+    },
+    updateStats: function (selectedStats) {
+      this.selectedStats = selectedStats
     },
     goToGithub: function () {
       window.open('https://github.com/newshamu/hockey-project', '_blank')

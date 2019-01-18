@@ -1,6 +1,6 @@
 <template>
   <v-flex class="pl-1 pr-1 ma-3">
-    <v-layout row>
+    <v-layout row wrap>
       <v-flex xs-12 sm-6>
         <team-selector
           :teams="teams"
@@ -100,9 +100,11 @@ export default {
         this.selectedStats.unshift(this.teamNameHeader)
         this.teamNameAdded = true
       }
+      this.$emit('stats-change', this.selectedStats)
     },
     teamsChange: function (selectedTeams) {
       this.selectedTeams = selectedTeams
+      this.$emit('teams-change', this.selectedTeams)
     }
   }
 }

@@ -15,7 +15,7 @@ Vue.use(Vuetify, {
 })
 
 Vue.use(Vuetify, {
-  iconfont: 'fa4' || 'mdi'
+  iconfont: 'mdi'
  })
 
 new Vue({
