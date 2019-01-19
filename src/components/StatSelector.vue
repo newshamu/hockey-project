@@ -22,11 +22,11 @@
         slot="selection"
         slot-scope="{ item, index }"
       >
-        <v-chip text-color="cyan lighten-5" color="cyan darken-1" v-if="index < 3">
+        <v-chip text-color="cyan lighten-5" color="cyan darken-1" v-if="index < 2">
           <span>{{ item.text }}</span>
         </v-chip>
         <span
-          v-if="index === 3"
+          v-if="index === 2"
           class="caption"
         >(+{{ selectedStats.length - 3 }} more)</span>
       </template>
