@@ -1,21 +1,58 @@
-<script>
-import { Bar } from 'vue-chartjs'
+<template>
+  <v-flex>
+    <v-btn @click="updateChart">Create Chart</v-btn>
+    <GChart
+      type="ColumnChart"
+      :data="chartData"
+      :options="chartOptions"
+    />
+  </v-flex>
+</template>
 
+<script>
 export default {
-  extends: Bar,
   props: ['selectedTeams', 'selectedStats'],
-  mounted () {
-    // Overwriting base render method with actual data.
-    this.renderChart({
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-      datasets: [
-        {
-          label: 'GitHub Commits',
-          backgroundColor: '#f87979',
-          data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
+  data () {
+    return {
+      // Array will be automatically processed with visualization.arrayToDataTable function
+      chartData: [
+        // ['Year', 'Sales', 'Expenses', 'Profit'],
+        // ['2014', 1000, 400, 200],
+        // ['2015', 1170, 460, 250],
+        // ['2016', 660, 1120, 300],
+        // ['2017', 1030, 540, 350]
+      ],
+      chartOptions: {
+        chart: {
+          title: 'Company Performance',
+          subtitle: 'Sales, Expenses, and Profit: 2014-2017',
         }
-      ]
-    })
+      }
+    }
+  },
+  methods: {
+    updateChart: function () {
+      // Initialize stat categories
+      var chartData = []
+      var statsText = []
+      var statsValue = []
+      for (var i = 0; i < this.selectedStats.length; i++) {
+        statsText.push(this.selectedStats[i].text)
+        statsValue.push(this.selectedStats[i].value)
+      }
+      chartData.push(statsText)
+
+      // Populate data
+      for (i = 0; i < this.selectedTeams.length; i++) {
+        var teamData = []
+        var currentTeam = this.selectedTeams[i]
+        for (var j = 0; j < statsText.length; j++) {
+          teamData.push(currentTeam[statsValue[j]])
+        }
+        chartData.push(teamData)
+      }
+      this.chartData = chartData
+    }
   }
 }
 </script>
