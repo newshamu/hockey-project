@@ -1,13 +1,31 @@
 <template>
   <v-flex>
     <v-btn @click="updateChart">Create Chart</v-btn>
-    <GChart
-      v-for="data in chartData"
-      :key="data.id"
-      type="ColumnChart"
-      :data="data"
-      :options="chartOptions"
-    />
+    <v-tabs
+      v-model="active"
+      color="primary"
+      dark
+      centered
+      slider-color="accent"
+    >
+      <v-tab
+        v-for="data in chartData"
+        :key="data.id"
+        ripple
+      >
+        {{ data[0][1] }}
+      </v-tab>
+      <v-tab-item
+        v-for="data in chartData"
+        :key="data.id"
+      >
+        <GChart
+          type="ColumnChart"
+          :data="data"
+          :options="chartOptions"
+        />
+      </v-tab-item>
+    </v-tabs>
   </v-flex>
 </template>
 
@@ -16,6 +34,7 @@ export default {
   props: ['selectedTeams', 'selectedStats'],
   data () {
     return {
+      active: null,
       // Array will be automatically processed with visualization.arrayToDataTable function
       chartData: [
         // [
