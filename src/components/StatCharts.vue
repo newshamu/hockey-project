@@ -18,11 +18,16 @@ export default {
     return {
       // Array will be automatically processed with visualization.arrayToDataTable function
       chartData: [
-        // ['Year', 'Sales', 'Expenses', 'Profit'],
-        // ['2014', 1000, 400, 200],
-        // ['2015', 1170, 460, 250],
-        // ['2016', 660, 1120, 300],
-        // ['2017', 1030, 540, 350]
+        // [
+        //   ['Team Name', 'Stat 1'],
+        //   ['Team 0', Team 0 Stat],
+        //   ['Team 1', Team 1 Stat]
+        // ],
+        // [
+        //   ['Team name', 'Stat 2'],
+        //   ['Team 0', Team 0 Stat],
+        //   ['Team 1', Team 1 Stat]
+        // ]
       ],
       chartOptions: {
         chart: {
@@ -34,27 +39,6 @@ export default {
   },
   methods: {
     updateChart: function () {
-      // Initialize stat categories
-      // var chartData = []
-      // var statsText = []
-      // var statsValue = []
-      // for (var i = 0; i < this.selectedStats.length; i++) {
-      //   statsText.push(this.selectedStats[i].text)
-      //   statsValue.push(this.selectedStats[i].value)
-      // }
-      // chartData.push(statsText)
-
-      // // Populate data
-      // for (i = 0; i < this.selectedTeams.length; i++) {
-      //   var teamData = []
-      //   var currentTeam = this.selectedTeams[i]
-      //   for (var j = 0; j < statsText.length; j++) {
-      //     teamData.push(currentTeam[statsValue[j]])
-      //   }
-      //   chartData.push(teamData)
-      // }
-      // this.chartData = chartData
-
       var chartData = []
       var stats = this.selectedStats
 

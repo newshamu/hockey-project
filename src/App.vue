@@ -17,10 +17,10 @@
           ></stat-table>
         </v-flex>
         <v-flex xs-12 sm-4>
-          <stat-chart
+          <stat-charts
             :selected-teams="selectedTeams"
             :selected-stats="selectedStats"
-          ></stat-chart>
+          ></stat-charts>
         </v-flex>
       </v-layout>
     </v-content>
@@ -56,13 +56,13 @@
 var axios = require('axios')
 
 import StatTable from './components/StatTable'
-import StatChart from './components/StatChart'
+import StatCharts from './components/StatCharts'
 
 export default {
   name: 'App',
   components: {
     StatTable,
-    StatChart
+    StatCharts
   },
   data: function () {
     return {
