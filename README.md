@@ -7,3 +7,8 @@ This website utilizes the official API of the NHL, which is documented [here](ht
 
 ## Site Location
 This site is currently hosted at https://headtoheadhockey.netlify.com/.
+
+## Made with
+- [Vue.js](https://vuejs.org/)
+- [Vuetify.js](https://vuetifyjs.com/en/)
+- [vue-google-charts](https://github.com/devstark-com/vue-google-charts?ref=madewithvuejs.com)
