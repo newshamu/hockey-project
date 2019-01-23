@@ -62,7 +62,13 @@ export default {
         // Insert each team's values for each stat
         for (var j = 0; j < this.selectedTeams.length; j++) {
           d.push(this.selectedTeams[j].name)
-          d.push(this.selectedTeams[j][stats[i].value])
+
+          // Check for %'s, denoted as strings. Convert to integers
+          var tVal = this.selectedTeams[j][stats[i].value]
+          if (typeof(tVal) === 'string') {
+            tVal = (parseFloat(tVal))
+          }
+          d.push(tVal)
           data.push(d)
           d = []
         }
