@@ -2,6 +2,7 @@
   <v-flex>
     <v-btn @click="updateChart">Create Chart</v-btn>
     <v-tabs
+      v-show="areGraphsDrawn"
       v-model="active"
       color="primary"
       dark
@@ -9,6 +10,7 @@
       slider-color="accent"
       id="tab"
       v-resize="updateChartSize"
+      @change="updateChartSize"
     >
       <v-tab
         v-for="data in chartData"
@@ -36,6 +38,7 @@ export default {
   props: ['selectedTeams', 'selectedStats'],
   data () {
     return {
+      areGraphsDrawn: false,
       active: null,
       // Array will be automatically processed with visualization.arrayToDataTable function
       chartData: [
@@ -64,6 +67,7 @@ export default {
       this.chartOptions.height = this.chartOptions.width / 3
     },
     updateChart: function () {
+      this.areGraphsDrawn = true
       var chartData = []
       var stats = this.selectedStats
 

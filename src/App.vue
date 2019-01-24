@@ -8,7 +8,7 @@
 
     <v-content>
       <v-layout row wrap>
-        <v-flex xs-12 sm-8>
+        <v-flex xs-12>
           <stat-table 
             :teams="teams"
             v-if="teams !== null"
@@ -16,7 +16,7 @@
             @stats-change="updateStats"
           ></stat-table>
         </v-flex>
-        <v-flex xs-12 sm-4>
+        <v-flex xs-12 sm-8 offset-2 >
           <stat-charts
             :selected-teams="selectedTeams"
             :selected-stats="selectedStats"
@@ -69,7 +69,7 @@ export default {
       teams: null,
       copyright: null,
       selectedTeams: null,
-      selectedStats: null
+      selectedStats: null,
     }
   },
   beforeMount: function () {
