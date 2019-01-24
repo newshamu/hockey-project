@@ -1,13 +1,35 @@
 <template>
   <v-flex>
     <v-btn @click="updateChart">Create Chart</v-btn>
-    <GChart
-      v-for="data in chartData"
-      :key="data.id"
-      type="ColumnChart"
-      :data="data"
-      :options="chartOptions"
-    />
+    <v-tabs
+      v-show="areGraphsDrawn"
+      v-model="active"
+      color="primary"
+      dark
+      centered
+      slider-color="accent"
+      id="tab"
+      v-resize="updateChartSize"
+      @change="updateChartSize"
+    >
+      <v-tab
+        v-for="data in chartData"
+        :key="data.id"
+        ripple
+      >
+        {{ data[0][1] }}
+      </v-tab>
+      <v-tab-item
+        v-for="data in chartData"
+        :key="data.id"
+      >
+        <GChart
+          type="ColumnChart"
+          :data="data"
+          :options="chartOptions"
+        />
+      </v-tab-item>
+    </v-tabs>
   </v-flex>
 </template>
 
@@ -16,6 +38,8 @@ export default {
   props: ['selectedTeams', 'selectedStats'],
   data () {
     return {
+      areGraphsDrawn: false,
+      active: null,
       // Array will be automatically processed with visualization.arrayToDataTable function
       chartData: [
         // [
@@ -30,15 +54,22 @@ export default {
         // ]
       ],
       chartOptions: {
+        width: 200,
+        height: 100,
         chart: {
-          title: 'Company Performance',
-          subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          title: 'Chart',
+          subtitle: 'Chart goes here'
         }
       }
     }
   },
   methods: {
+    updateChartSize: function () {
+      this.chartOptions.width = document.getElementById('tab').clientWidth
+      this.chartOptions.height = this.chartOptions.width / 3
+    },
     updateChart: function () {
+      this.areGraphsDrawn = true
       var chartData = []
       var stats = this.selectedStats
 
@@ -75,6 +106,7 @@ export default {
         chartData.push(data)
       }
       this.chartData = chartData
+      this.updateChartSize()
     }
   }
 }
