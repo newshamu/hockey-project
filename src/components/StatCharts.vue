@@ -7,6 +7,8 @@
       dark
       centered
       slider-color="accent"
+      id="tab"
+      v-resize="updateChartSize"
     >
       <v-tab
         v-for="data in chartData"
@@ -49,14 +51,18 @@ export default {
         // ]
       ],
       chartOptions: {
-        chart: {
-          title: 'Company Performance',
-          subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-        }
+        title: 'Company Performance',
+        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+        width: 200,
+        height: 100
       }
     }
   },
   methods: {
+    updateChartSize: function () {
+      this.chartOptions.width = document.getElementById('tab').clientWidth
+      this.chartOptions.height = this.chartOptions.width / 3
+    },
     updateChart: function () {
       var chartData = []
       var stats = this.selectedStats
@@ -94,6 +100,7 @@ export default {
         chartData.push(data)
       }
       this.chartData = chartData
+      this.updateChartSize()
     }
   }
 }
