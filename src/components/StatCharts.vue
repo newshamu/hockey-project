@@ -54,10 +54,12 @@ export default {
         // ]
       ],
       chartOptions: {
-        title: 'Company Performance',
-        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
         width: 200,
-        height: 100
+        height: 100,
+        chart: {
+          title: 'Chart',
+          subtitle: 'Chart goes here'
+        }
       }
     }
   },
