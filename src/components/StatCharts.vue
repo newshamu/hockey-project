@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import teamColors from '../static/TeamColorDict.js'
+
 export default {
   props: ['selectedTeams', 'selectedStats'],
   data () {
@@ -88,6 +90,7 @@ export default {
         var d = []
         d.push(statsText[0])
         d.push(statsText[i])
+        d.push({ role: 'style' })
         data.push(d)
         d = []
         // Insert each team's values for each stat
@@ -100,6 +103,11 @@ export default {
             tVal = (parseFloat(tVal))
           }
           d.push(tVal)
+          var that = this
+          var colors = teamColors.find(function(element) {
+            return element.name === that.selectedTeams[j].name
+          })
+          d.push(colors.colors[0])
           data.push(d)
           d = []
         }
