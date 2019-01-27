@@ -10,6 +10,7 @@
       slider-color="accent"
       id="tab"
       v-resize="updateChartSize"
+      show-arrows
     >
       <v-tab
         v-for="data in chartData"
@@ -56,8 +57,9 @@ export default {
         // ]
       ],
       chartOptions: {
-        width: 200,
-        height: 100,
+        width: window.innerWidth,
+        height: window.innerWidth / 3,
+        legend: { position: "none" },
         chart: {
           title: 'Chart',
           subtitle: 'Chart goes here'
@@ -67,8 +69,8 @@ export default {
   },
   methods: {
     updateChartSize: function () {
-      this.chartOptions.width = document.getElementById('tab').clientWidth
-      this.chartOptions.height = this.chartOptions.width / 3
+      this.chartOptions.width = window.innerWidth
+      this.chartOptions.height = window.innerWidth / 3
     },
     updateChart: function () {
       this.areGraphsDrawn = true
