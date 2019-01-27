@@ -10,7 +10,7 @@
       slider-color="accent"
       id="tab"
       v-resize="updateChartSize"
-      @change="updateChartSize"
+      show-arrows
     >
       <v-tab
         v-for="data in chartData"
@@ -22,6 +22,7 @@
       <v-tab-item
         v-for="data in chartData"
         :key="data.id"
+        lazy
       >
         <GChart
           type="ColumnChart"
@@ -56,8 +57,9 @@ export default {
         // ]
       ],
       chartOptions: {
-        width: 200,
-        height: 100,
+        width: window.innerWidth,
+        height: window.innerWidth / 3,
+        legend: { position: "none" },
         chart: {
           title: 'Chart',
           subtitle: 'Chart goes here'
@@ -67,52 +69,54 @@ export default {
   },
   methods: {
     updateChartSize: function () {
-      this.chartOptions.width = document.getElementById('tab').clientWidth
-      this.chartOptions.height = this.chartOptions.width / 3
+      this.chartOptions.width = window.innerWidth
+      this.chartOptions.height = window.innerWidth / 3
     },
     updateChart: function () {
       this.areGraphsDrawn = true
       var chartData = []
-      var stats = this.selectedStats
+      var that = this
 
       // Break stats into text and value arrays
-      var statsText = []
-      var statsValue = []
-      for (var i = 0; i < this.selectedStats.length; i++) {
-        statsText.push(this.selectedStats[i].text)
-        statsValue.push(this.selectedStats[i].value)
-      }
+      var statsText  = this.selectedStats.map( function (stat) {
+        return stat.text
+      })
 
       // Create a chart data array for each stat
       // Loop starts at 1 to ignore team name "stat"
-      for (i = 1; i < this.selectedStats.length; i++) {
-        var data = []
-        var d = []
-        d.push(statsText[0])
-        d.push(statsText[i])
-        d.push({ role: 'style' })
-        data.push(d)
-        d = []
-        // Insert each team's values for each stat
-        for (var j = 0; j < this.selectedTeams.length; j++) {
-          d.push(this.selectedTeams[j].name)
-
-          // Check for %'s, denoted as strings. Convert to integers
-          var tVal = this.selectedTeams[j][stats[i].value]
-          if (typeof(tVal) === 'string') {
-            tVal = (parseFloat(tVal))
+      this.selectedStats
+        .filter( function (stat) {
+          if (stat.text !== 'Team Name') {
+            return stat
           }
-          d.push(tVal)
-          var that = this
-          var colors = teamColors.find(function(element) {
-            return element.name === that.selectedTeams[j].name
-          })
-          d.push(colors.colors[0])
+        }).map( function (stat) {
+          var data = []
+          var d = []
+          d.push(statsText[0])
+          d.push(statsText[that.selectedStats.indexOf(stat)])
+          d.push({ role: 'style' })
           data.push(d)
           d = []
-        }
-        chartData.push(data)
-      }
+
+          // Insert each team's values for each stat
+          that.selectedTeams.map( function (team) {
+            d.push(team.name)
+
+            // Check for %'s, denoted as strings. Convert to integers
+            var tVal = team[stat.value]
+            if (typeof(tVal) === 'string') {
+              tVal = (parseFloat(tVal))
+            }
+            d.push(tVal)
+            var colors = teamColors.find(function(element) {
+              return element.abbreviation === team.abbreviation
+            })
+            d.push(colors.colors[0])
+            data.push(d)
+            d = []
+          })
+          chartData.push(data)
+        })
       this.chartData = chartData
       this.updateChartSize()
     }

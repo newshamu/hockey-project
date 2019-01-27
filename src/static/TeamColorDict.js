@@ -1,6 +1,7 @@
 module.exports = [
   {
     name: 'Anaheim Ducks',
+    abbreviation: 'ANA',
     colors: [
       '#f47a38',
       '#b09862',
@@ -10,6 +11,7 @@ module.exports = [
   },
   {
     name: 'Arizona Coyotes',
+    abbreviation: 'ARI',
     colors: [
       '#8c2633',
       '#e2d6b5',
@@ -18,6 +20,7 @@ module.exports = [
   },
   {
     name: 'Boston Bruins',
+    abbreviation: 'BOS',
     colors: [
       '#ffb81c',
       '#000000'
@@ -25,6 +28,7 @@ module.exports = [
   },
   {
     name: 'Buffalo Sabres',
+    abbreviation: 'BUF',
     colors: [
       '#002654',
       '#fcb514',
@@ -34,6 +38,7 @@ module.exports = [
   },
   {
     name: 'Calgary Flames',
+    abbreviation: 'CGY',
     colors: [
       '#c8102e',
       '#f1be48',
@@ -43,6 +48,7 @@ module.exports = [
   },
   {
     name: 'Carolina Hurricanes',
+    abbreviation: 'CAR',
     colors: [
       '#cc0000',
       '#000000',
@@ -52,6 +58,7 @@ module.exports = [
   },
   {
     name: 'Chicago Blackhawks',
+    abbreviation: 'CHI',
     colors: [
       '#cf0a2c',
       '#ff671b',
@@ -65,6 +72,7 @@ module.exports = [
   },
   {
     name: 'Colorado Avalanche',
+    abbreviation: 'COL',
     colors: [
       '#6f263d',
       '#236192',
@@ -74,6 +82,7 @@ module.exports = [
   },
   {
     name: 'Columbus Blue Jackets',
+    abbreviation: 'CBJ',
     colors: [
       '#002654',
       '#ce1126',
@@ -82,6 +91,7 @@ module.exports = [
   },
   {
     name: 'Dallas Stars',
+    abbreviation: 'DAL',
     colors: [
       '#006847',
       '#8f8f8c',
@@ -90,6 +100,7 @@ module.exports = [
   },
   {
     name: 'Detroit Red Wings',
+    abbreviation: 'DET',
     colors: [
       '#ce1126',
       '#ffffff'
@@ -97,6 +108,7 @@ module.exports = [
   },
   {
     name: 'Edmonton Oilers',
+    abbreviation: 'EDM',
     colors: [
       '#041e42',
       '#ff4c00'
@@ -104,6 +116,7 @@ module.exports = [
   },
   {
     name: 'Florida Panthers',
+    abbreviation: 'FLA',
     colors: [
       '#041e42',
       '#c8102e',
@@ -112,6 +125,7 @@ module.exports = [
   },
   {
     name: 'Los Angeles Kings',
+    abbreviation: 'LAK',
     colors: [
       '#111111',
       '#a2aaad',
@@ -120,6 +134,7 @@ module.exports = [
   },
   {
     name: 'Minnesota Wild',
+    abbreviation: 'MIN',
     colors: [
       '#154734',
       '#a6192e',
@@ -128,7 +143,8 @@ module.exports = [
     ]
   },
   {
-    name: 'Montreal Canadiens',
+    name: 'Montréal Canadiens',
+    abbreviation: 'MTL',
     colors: [
       '#af1e2d',
       '#192168'
@@ -136,6 +152,7 @@ module.exports = [
   },
   {
     name: 'Nashville Predators',
+    abbreviation: 'NSH',
     colors: [
       '#ffb81c',
       '#041e42',
@@ -144,6 +161,7 @@ module.exports = [
   },
   {
     name: 'New Jersey Devils',
+    abbreviation: 'NJD',
     colors: [
       '#ce1126',
       '#000000',
@@ -152,6 +170,7 @@ module.exports = [
   },
   {
     name: 'New York Islanders',
+    abbreviation: 'NYI',
     colors: [
       '#00539b',
       '#f47d30'
@@ -159,6 +178,7 @@ module.exports = [
   },
   {
     name: 'New York Rangers',
+    abbreviation: 'NYR',
     colors: [
       '#0038a8',
       '#ce1126',
@@ -167,6 +187,7 @@ module.exports = [
   },
   {
     name: 'Ottawa Senators',
+    abbreviation: 'OTT',
     colors: [
       '#e31837',
       '#c69214',
@@ -176,6 +197,7 @@ module.exports = [
   },
   {
     name: 'Philadelphia Flyers',
+    abbreviation:'PHI',
     colors: [
       '#f74902',
       '#000000',
@@ -184,6 +206,7 @@ module.exports = [
   },
   {
     name: 'Pittsubrgh Penguins',
+    abbreviation: 'PIT',
     colors: [
       '#000000',
       '#cfc493',
@@ -193,6 +216,7 @@ module.exports = [
   },
   {
     name: 'St. Louis Blues',
+    abbreviation: 'STL',
     colors: [
       '#002f87',
       '#fcb514',
@@ -202,6 +226,7 @@ module.exports = [
   },
   {
     name: 'San Jose Sharks',
+    abbreviation: 'SJS',
     colors: [
       '#006d75',
       '#ea7200',
@@ -211,12 +236,14 @@ module.exports = [
   },
   {
     name: 'Tampa Bay Lightning',
+    abbreviation: 'TBL',
     colors: [
       '#002868'
     ]
   },
   {
     name: 'Toronto Maple Leafs',
+    abbreviation: 'TOR',
     colors: [
       '#003e7e',
       '#ffffff'
@@ -224,6 +251,7 @@ module.exports = [
   },
   {
     name: 'Vancouver Canucks',
+    abbreviation: 'VAN',
     colors: [
       '#001f5b',
       '#00843d',
@@ -234,6 +262,7 @@ module.exports = [
   },
   {
     name: 'Vegas Golden Knights',
+    abbreviation: 'VGK',
     colors: [
       '#b4975a',
       '#333f42',
@@ -244,6 +273,7 @@ module.exports = [
   },
   {
     name: 'Washington Capitals',
+    abbreviation: 'WSH',
     colors: [
       '#041e42',
       '#c8102e',
@@ -252,6 +282,7 @@ module.exports = [
   },
   {
     name: 'Winnipeg Jets',
+    abbreviation: 'WPG',
     colors: [
       '#041e42',
       '#004c97',

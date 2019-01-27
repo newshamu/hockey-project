@@ -7,7 +7,7 @@
     </v-toolbar>
 
     <v-content>
-      <v-layout row wrap>
+      <v-layout column>
         <v-flex xs-12>
           <stat-table 
             :teams="teams"
@@ -16,7 +16,7 @@
             @stats-change="updateStats"
           ></stat-table>
         </v-flex>
-        <v-flex xs-12 sm-8 offset-2 >
+        <v-flex>
           <stat-charts
             :selected-teams="selectedTeams"
             :selected-stats="selectedStats"
