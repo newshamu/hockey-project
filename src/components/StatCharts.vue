@@ -10,7 +10,6 @@
       slider-color="accent"
       id="tab"
       v-resize="updateChartSize"
-      @change="updateChartSize"
     >
       <v-tab
         v-for="data in chartData"
@@ -22,6 +21,7 @@
       <v-tab-item
         v-for="data in chartData"
         :key="data.id"
+        lazy
       >
         <GChart
           type="ColumnChart"
