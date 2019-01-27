@@ -76,11 +76,8 @@ export default {
       var that = this
 
       // Break stats into text and value arrays
-      var statsText = []
-      var statsValue = []
-      this.selectedStats.map( function (stat) {
-        statsText.push(stat.text)
-        statsValue.push(stat.value)
+      var statsText  = this.selectedStats.map( function (stat) {
+        return stat.text
       })
 
       // Create a chart data array for each stat
@@ -110,7 +107,7 @@ export default {
             }
             d.push(tVal)
             var colors = teamColors.find(function(element) {
-              return element.name === team.name
+              return element.abbreviation === team.abbreviation
             })
             d.push(colors.colors[0])
             data.push(d)
